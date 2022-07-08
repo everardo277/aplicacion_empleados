@@ -5,6 +5,7 @@
  */
 package sistema.empleadosGUI;
 import java.sql.ResultSet;
+import sistema.empleadosBL.empleadosBL;
 import sistema.empleadosDAL.conexion;
 
 /**
@@ -163,6 +164,17 @@ public class frmEmpleados extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnAgregarActionPerformed
 
+    //metodo para obtener los datos de los campos de la interfaz gráfica
+    
+    public empleadosBL recuperarDatosGUI(){
+        empleadosBL oEmpleados= new empleadosBL();
+        int ID = (txtID.getText().isEmpty())? 0 : Integer.parseInt(txtID.getText()) ;
+        oEmpleados.setID(ID);
+        oEmpleados.setNombre(txtNombre.getText());
+        oEmpleados.setCorreo(txtCorreo.getText());
+        return oEmpleados;
+    }
+    
     /**
      * @param args the command line arguments
      */
